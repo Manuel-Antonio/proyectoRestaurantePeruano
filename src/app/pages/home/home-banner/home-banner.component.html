@@ -1,0 +1,70 @@
+<div class="bg-red-50">
+  <div class=" lg:flex container h-screen justify-center items-center gap-4 ">
+    <div class="w-1/2">
+      <!-- <div class="banner-logo">
+        <img class="w-28" src="/assets/ComidaPeruanaLogo.png" alt="logo empresa" />
+      </div> -->
+      <h1 class="text-7xl font-black">¡Experimenta todos los sabores peruanos donde estes!</h1>
+      <h2 class="text-xl mt-3">
+        Sumérgete en sabores auténticos que capturan la esencia culinaria de Perú,
+        todo en un solo lugar. ¡Descubre el placer de la gastronomía peruana en
+        cada bocado!
+      </h2>
+      <div class="flex gap-3 mt-3">
+        <button type="button" class="px-4 py-3 hover:bg-red-700 transition-all text-white bg-red-600 rounded shadow font-bold">Ver Menu</button>
+        <button type="button" class="px-4 py-3  hover:bg-zinc-800 transition-all text-white bg-zinc-900 rounded shadow font-bold">Administrar Productos</button>
+      
+      </div>
+    </div>
+    <div class="w-1/2">
+      <!-- Carousel -->
+      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="0"
+            class="active"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide-to="2"
+          ></button>
+        </div>
+  
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner">
+          <div class="carousel-item active" *ngFor="let item of productosRecientes">
+            <img [src]="item.imagen" alt="Imagen de {{item.nombre}}" class="d-block w-full rounded shadow-xl" />
+          </div>
+        </div>
+  
+        <!-- Left and right controls/icons -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#demo"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
