@@ -1,16 +1,74 @@
-<div class="footer-container">
-  <div class="logo-container">
-      <img src="/assets/ComidaPeruanaLogo.png" alt="logo empresa">
-      <div class="footer-social">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-instagram"></i>
+<div class="bg-dark">
+  <div
+    class="footer-container container h-96 grid grid-cols-4 items-start pt-5 text-white"
+  >
+    <div>
+      <img
+        src="/assets/ComidaPeruanaLogo.png"
+        alt="logo empresa"
+        class="w-48"
+      />
+    </div>
+    <div class="footer-social">
+      <h3 class="text-2xl font-black mb-3">Redes Sociales</h3>
+      <div class="flex flex-col gap-2 justify-start">
+        <a type="button" class="space-x-2 text-lg font-bold">
+            <i class="fa-brands fa-facebook"></i> 
+            Facebook
+        </a>
+        <a type="button" class="space-x-2 text-lg font-bold">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+        </a>
+        
       </div>
-  </div>
-  <div class="footer-menu">
-      <ul>
-          <li><a href="#nosotros">Sobre nosotros</a></li>
-          <li><a href="#recetas">Recetas</a></li>
-          <li><a href="#equipo">Equipo</a></li>
+    </div>
+    <div class="footer-menu">
+      <h3 class="text-2xl font-black mb-3">Menú de Navegación</h3>
+      <ul class="space-y-2">
+        <li>
+          <a
+            href="/login"
+            class="text-lg text-zinc-400 font-black transition-all hover:text-red-600"
+            >Login</a
+          >
+        </li>
+        <li>
+          <a
+            href="/registro"
+            class="text-lg text-zinc-400 font-black transition-all hover:text-red-600"
+            >Registro</a
+          >
+        </li>
+        <li>
+          <a
+            href="/home"
+            class="text-lg text-zinc-400 font-black transition-all hover:text-red-600"
+            >Principal</a
+          >
+        </li>
+        <li>
+          <a
+            href="/receipts"
+            class="text-lg text-zinc-400 font-black transition-all hover:text-red-600"
+            >Mantenimiento</a
+          >
+        </li>
       </ul>
+    </div>
+    <div class="space-y-2">
+      <h3 class="text-2xl font-black mb-3">Productos recientes</h3>
+      <div class="flex gap-3" *ngFor="let item of productosRecientes">
+        <img
+          [src]="item.imagen"
+          alt="Imagen de {{ item.nombre }}"
+          class="w-20"
+        />
+        <div>
+          <p class="text-xl font-bold text-zinc-200">{{ item.nombre }}</p>
+          <p class="text-lg font-black text-red-600">S/{{ item.precio }}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
