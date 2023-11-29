@@ -9,7 +9,8 @@ import { Usuario } from '../models/usuario.model';
 })
 export class UsuarioService {
 
-  private baseUrl = 'http://localhost:8081/api/usuario';
+  // private baseUrl = 'http://localhost:8081/api/usuario';
+  private baseUrl = 'https://restauranteperuano.uc.r.appspot.com/api/usuario';
 
   constructor(private http: HttpClient) {}
 
