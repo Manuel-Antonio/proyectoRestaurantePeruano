@@ -1,9 +1,9 @@
 <div class="body">
   <div class="container">
     <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
-      <h2>Iniciar Sesión</h2>
+      <h2 class="text-4xl font-black">Iniciar Sesión</h2>
   
-      <div class="form-group">
+      <div class="form-group mt-3">
         <label for="nombreUsuario">Usuario</label>
         <input type="text" id="nombreUsuario" formControlName="nombreUsuario" required>
       </div>
@@ -13,7 +13,11 @@
         <input type="password" id="password" formControlName="password" required>
       </div>
   
-      <button type="submit">Iniciar Sesión</button>
+      <button type="submit" class="w-full font-bold">Iniciar Sesión</button>
     </form>
+    <div class="flex flex-col">
+      <a href="/registro" class="text-sm text-center mt-3">¿No tienes cuenta?, ¡Registrate aquí!</a>
+    <a href="/home" class="text-sm text-center mt-3 text-red-600 font-bold">Regresar a la web</a>
+    </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="body">
   <div class="container">
     <form [formGroup]="registroForm" (ngSubmit)="registrarUsuario()">
-      <h2>Registrarse</h2>
+      <h2 class="text-4xl font-black">Registrarse</h2>
 
       <div class="form-group">
         <label for="nombreUsuario">Usuario</label>
@@ -58,7 +58,11 @@
         />
       </div>
 
-      <button type="submit">Registrarse</button>
+      <button type="submit" class="bg-dark text-white w-full rounded mt-3 hover:bg-red-600">Registrarse</button>
     </form>
+    <div class="flex flex-col">
+      <a href="/login" class="text-sm text-center mt-3 font-bold">¿Tienes cuenta?, ¡Inicia sesión!</a>
+    <a href="/home" class="text-sm text-center mt-3 text-red-600 font-bold">Regresar a la web</a>
+    </div>
   </div>
 </div>

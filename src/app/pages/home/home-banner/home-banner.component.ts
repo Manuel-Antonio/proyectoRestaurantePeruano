@@ -16,7 +16,6 @@ export class HomeBannerComponent implements OnInit {
   ngOnInit() {
     this.commonSub = this.receiptService.obtenerProductos().subscribe(data => {
       this.productosRecientes = data.slice(-3);
-      console.log(this.productosRecientes)
     });
   }
 

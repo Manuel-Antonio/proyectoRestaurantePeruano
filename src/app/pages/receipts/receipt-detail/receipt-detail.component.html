@@ -1,16 +1,21 @@
-<form [formGroup]="formularioProducto">
-  <label for="nombre">Nombre:</label>
-  <input id="nombre" formControlName="nombre">
+<form [formGroup]="formularioProducto" class="bg-gray-50">
+  <label for="nombre" class="uppercase font-bold mb-2">Nombre:</label>
+  <input id="nombre" formControlName="nombre" class="w-full border rounded px-3 py-2" #valorNombre>
 
-  <label for="precio">Precio:</label>
-  <input id="precio" formControlName="precio">
+  <label for="precio"  class="uppercase font-bold mb-2 mt-3">Precio:</label>
+  <input id="precio" formControlName="precio" class="w-full border rounded px-3 py-2">
 
-  <label for="departamento">Departamento:</label>
-  <input id="departamento" formControlName="departamento">
+  <label for="departamento"  class="uppercase font-bold mb-2 mt-3">Departamento:</label>
+  <input id="departamento" formControlName="departamento" class="w-full border rounded px-3 py-2">
 
-  <label for="image">Imagen:</label>
-  <input id="image" formControlName="imagen">
-
-  <button type="button" (click)="agregarProducto()" style="margin-right: 5px;">Guardar Producto</button>
-  <button type="button" (click)="cerrar()" style="background-color: #e74c3c;">Cerrar</button>
+  <label for="image"  class="uppercase font-bold mb-2 mt-3">Imagen:</label>
+  <input id="image" formControlName="imagen" class="w-full border rounded px-3 py-2" #valorImg>
+  <div class="flex justify-center mt-3 border">
+    <img [src]="valorImg.value" [alt]="valorNombre.value"  class="rounded p-3">
+  </div>
+  <hr class="text-gray-400 w-full mt-3 shadow">
+  <div class="flex gap-2 mt-3 justify-end">
+    <button type="button" (click)="agregarProducto()" data-bs-dismiss="modal" style="margin-right: 5px;" class="btn btn-success bg-green-700">Guardar Producto</button>
+  <button type="button" (click)="cerrar()" data-bs-dismiss="modal" style="background-color: #e74c3c;" class="btn btn-danger bg-red-600">Cerrar</button>
+  </div>
 </form>

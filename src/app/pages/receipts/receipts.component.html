@@ -1,38 +1,94 @@
-<div class="fila-agregar">
-  <button class="agregar-boton" (click)="agregarProducto()">Agregar</button>
-
+<div class="container mt-5">
+  <h1 class="text-4xl font-black">Listado de Productos</h1>
+  <h3 class="text-xl text-zinc-500 mb-3">Administra tus productos de forma facil</h3>
+  <div class="fila-agregar">
+    <button
+      class="agregar-boton py-2 px-3 rounded shadow text-white transition-all bg-green-700 hover:bg-green-800"
+      (click)="agregarProducto()"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#myModal"
+    >
+      Agregar
+    </button>
+  </div>
+  <table class="table mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>N°</th>
+        <th>Producto</th>
+        <th class="text-center">Precio</th>
+        <th class="text-center">Departamento</th>
+        <th class="text-center">Imagen</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of productos$ | async as listProd ; let i = index" class="align-middle">
+        <td>{{i + 1}}</td>
+        <td class="text-lg font-black">{{ prod.nombre }}</td>
+        <td class="text-success font-black text-xl text-center">S/{{ prod.precio.toFixed(2) }}</td>
+        <td class="font-black text-secondary text-center">{{ prod.departamento }}</td>
+        <td style="max-width: 200px; text-wrap: wrap; word-break: break-all" class="flex justify-center">
+          <img src="{{ prod.imagen }}" alt="" class="w-16 h-16 rounded-full">
+        </td>
+        <td style="width: 100px">
+          <div class="flex gap-1">
+            <button
+            type="button"
+            (click)="editarProducto(prod.id)"
+            class="btn btn-warning bg-yellow-500"
+            style="margin-right: 5px"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+          >
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button
+            type="button"
+            (click)="eliminarProducto(prod.id)"
+            class="btn btn-danger bg-red-600"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+          >
+            <i class="fa fa-trash"></i>
+          </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<table>
-  <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Precio</th>
-      <th>Departamento</th>
-      <th>Imagen</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let prod of productos$ | async as listProd">
-      <td>{{prod.nombre}}</td>
-      <td>{{prod.precio}}</td>
-      <td>{{prod.departamento}}</td>
-      <td style="max-width: 200px; text-wrap: wrap; word-break: break-all;">{{prod.imagen}}</td>
-      <td style="width: 100px;">
-          <a (click)="editarProducto(prod.id)" class="agregar-boton" style="margin-right: 5px;">
-              <i class="fa fa-pencil"></i>
-          </a>
-          <a (click)="eliminarProducto(prod.id)" class="eliminar-boton">
-              <i class="fa fa-trash"></i>
-          </a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h2 class="text-4xl font-black">
+          {{ productSelectedId ? "Editar" : "Agregar" }} Receta
+        </h2>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
 
-<div class="modal-overlay" id="modal-overlay" [ngClass]="{'active': isModal}">
-  <div class="modal" id="modal" [ngClass]="{'active': isModal}">
-    <h2>{{productSelectedId ? 'Editar' : 'Agregar'}} Receta</h2>
-    <app-receipt-detail *ngIf="isModal" (onClose)="seGuardo($event)" [productId]="productSelectedId"></app-receipt-detail>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <app-receipt-detail
+          *ngIf="isModal"
+          (onClose)="seGuardo($event)"
+          [productId]="productSelectedId"
+        ></app-receipt-detail>
+      </div>
+    </div>
   </div>
 </div>
+<!-- <div class="modal-overlay" id="modal-overlay" [ngClass]="{'active': isModal}">
+  <div class="modal" id="modal" [ngClass]="{'active': isModal}">
+    
+   
+  </div>
+</div> -->
