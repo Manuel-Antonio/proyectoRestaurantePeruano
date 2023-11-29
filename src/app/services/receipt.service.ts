@@ -8,8 +8,8 @@ import { Producto } from '../models/receipt.model';
   providedIn: 'root'
 })
 export class ReceiptService {
-  // private apiUrl = 'http://localhost:8081/api/productos';
-  private apiUrl = 'https://restauranteperuano.uc.r.appspot.com/api/productos';
+  private apiUrl = 'http://localhost:8081/api/productos';
+  // private apiUrl = 'https://restauranteperuano.uc.r.appspot.com/api/productos';
 
   constructor(private http: HttpClient) {}
 
